@@ -1,3 +1,4 @@
+import './styles/App.css';
 import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import ProjectList from './components/ProjectList';
