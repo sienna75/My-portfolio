@@ -1,15 +1,29 @@
-export default function ProjectCard({ project }) {
+function ProjectCard({ project }) {
   return (
     <article className="project-card">
-      <h3>{project.title}</h3>
-      <p>{project.description}</p>
-      {project.tags && (
-        <div className="tags">
-          {project.tags.map((tag, idx) => (
-            <span key={idx} className="tag">{tag}</span>
-          ))}
-        </div>
-      )}
+      <img
+        src={project.image}
+        alt={project.title}
+        className="project-image"
+      />
+
+      <div className="project-content">
+        <p className="project-category">
+          {project.category}
+        </p>
+
+        <h3>{project.title}</h3>
+
+        <p className="project-description">
+          {project.description}
+        </p>
+
+        <button className="view-button">
+          View Project →
+        </button>
+      </div>
     </article>
   );
 }
+
+export default ProjectCard;

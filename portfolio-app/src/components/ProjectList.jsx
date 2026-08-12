@@ -1,15 +1,24 @@
-import ProjectCard from './ProjectCard';
+import ProjectCard from "./ProjectCard";
 
-export default function ProjectList({ projects }) {
-  if (!projects.length) {
-    return <p className="empty-message">No matching projects found.</p>;
+function ProjectList({ projects }) {
+  if (projects.length === 0) {
+    return (
+      <p className="no-projects">
+        No projects found. Try another search.
+      </p>
+    );
   }
 
   return (
-    <div className="project-list">
+    <div className="project-grid">
       {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
+        <ProjectCard
+          key={project.id}
+          project={project}
+        />
       ))}
     </div>
   );
 }
+
+export default ProjectList;

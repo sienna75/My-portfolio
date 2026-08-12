@@ -1,12 +1,19 @@
-export default function SearchBar({ searchTerm, onSearchChange }) {
+import { FaSearch } from "react-icons/fa";
+
+function SearchBar({ searchTerm, setSearchTerm }) {
   return (
-    <div className="search-container">
+    <div className="search-box">
+      <FaSearch />
+
       <input
         type="text"
-        placeholder="Filter projects by title..."
+        placeholder="Search projects..."
         value={searchTerm}
-        onChange={(e) => onSearchChange(e.target.value)}
+        onChange={(event) => setSearchTerm(event.target.value)}
+        aria-label="Search projects"
       />
     </div>
   );
 }
+
+export default SearchBar;

@@ -1,16 +1,30 @@
-# React + Vite
+# Portfolio Project Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React application built with Vite for browsing and filtering portfolio projects.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Component Hierarchy**: Modular design featuring `ProjectCard`, `ProjectList`, and `SearchBar` components.
+- **State Management**: Lifted state in `App` component keeps search filtering synchronized across components.
+- **Responsive Layout**: Clean CSS grid/flexbox implementation optimized for desktop and mobile viewports.
+- **Automated Testing**: Unit test coverage for key UI components using Vitest and React Testing Library.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- CSS
+- Vitest & React Testing Library
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+Ensure Node.js is installed on your environment.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <YOUR_GITHUB_REPO_URL>
+   cd portfolio-app
