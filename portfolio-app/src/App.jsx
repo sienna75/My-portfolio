@@ -6,7 +6,6 @@ import ProjectList from "./components/ProjectList";
 import ProjectForm from "./components/ProjectForm";
 import Footer from "./components/Footer";
 import "./App.css";
-
 function App() {
   const [projects, setProjects] = useState([
     {
