@@ -48,8 +48,7 @@ function ProjectForm({ addProject }) {
         <h2>Add a New Project</h2>
 
         <p>
-          Have a new project? Add it to the portfolio using the
-          form below.
+          Have a new project? Add it to the portfolio using the form below.
         </p>
       </div>
 
