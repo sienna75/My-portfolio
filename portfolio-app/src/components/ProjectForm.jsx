@@ -1,116 +1,74 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-function ProjectForm({ addProject }) {
+export default function ProjectForm({ onAddProject }) {
   const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    category: "",
-    image: "",
+    title: '',
+    category: '',
+    description: '',
+    imageUrl: '',
+    link: ''
   });
 
-  function handleChange(event) {
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    setFormData((previousData) => ({
-      ...previousData,
-      [name]: value,
-    }));
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.title || !formData.category) return;
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    if (
-      !formData.title ||
-      !formData.description ||
-      !formData.category ||
-      !formData.image
-    ) {
-      alert("Please fill in all fields.");
-      return;
-    }
-
-    addProject(formData);
-
-    setFormData({
-      title: "",
-      description: "",
-      category: "",
-      image: "",
+    onAddProject({
+      ...formData,
+      id: Date.now().toString(),
+      imageUrl: formData.imageUrl || 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop'
     });
-  }
+
+    setFormData({ title: '', category: '', description: '', imageUrl: '', link: '' });
+  };
 
   return (
-    <section className="form-section" id="add-project">
-      <div className="form-heading">
-        <p className="section-label">ADD TO MY WORK</p>
+    <form className="project-form" id="add-project" onSubmit={handleSubmit}>
+      <h2>Add New Project</h2>
+      
+      <input
+        name="title"
+        placeholder="Project title *"
+        value={formData.title}
+        onChange={handleChange}
+        required
+      />
+      
+      <input
+        name="category"
+        placeholder="Category *"
+        value={formData.category}
+        onChange={handleChange}
+        required
+      />
+      
+      <input
+        name="imageUrl"
+        placeholder="Image URL"
+        value={formData.imageUrl}
+        onChange={handleChange}
+      />
+      
+      <input
+        name="link"
+        placeholder="Project URL"
+        value={formData.link}
+        onChange={handleChange}
+      />
+      
+      <textarea
+        name="description"
+        placeholder="Description"
+        value={formData.description}
+        onChange={handleChange}
+        rows="3"
+      />
 
-        <h2>Add a New Project</h2>
-
-        <p>
-          Have a new project? Add it to the portfolio using the form below.
-        </p>
-      </div>
-
-      <form onSubmit={handleSubmit} className="project-form">
-        <div className="form-group">
-          <label htmlFor="title">Project Title</label>
-
-          <input
-            id="title"
-            name="title"
-            type="text"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="e.g. E-commerce Website"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="category">Category</label>
-
-          <input
-            id="category"
-            name="category"
-            type="text"
-            value={formData.category}
-            onChange={handleChange}
-            placeholder="e.g. Web App"
-          />
-        </div>
-
-        <div className="form-group full-width">
-          <label htmlFor="image">Image URL</label>
-
-          <input
-            id="image"
-            name="image"
-            type="url"
-            value={formData.image}
-            onChange={handleChange}
-            placeholder="https://example.com/image.jpg"
-          />
-        </div>
-
-        <div className="form-group full-width">
-          <label htmlFor="description">Description</label>
-
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Describe your project..."
-            rows="5"
-          />
-        </div>
-
-        <button type="submit" className="submit-button">
-          Add Project
-        </button>
-      </form>
-    </section>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
-
-export default ProjectForm;

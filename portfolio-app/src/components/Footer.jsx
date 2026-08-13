@@ -1,9 +1,7 @@
-function Footer() {
+export default function Footer() {
   return (
     <footer className="footer">
-      <p>© 2026 Sienna Portfolio. Built with React.</p>
+      <p>&copy; {new Date().getFullYear()} Creative Studio. All rights reserved.</p>
     </footer>
   );
 }
-
-export default Footer;

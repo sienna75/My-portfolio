@@ -1,29 +1,17 @@
-function ProjectCard({ project }) {
+export default function ProjectCard({ project }) {
   return (
-    <article className="project-card">
-      <img
-        src={project.image}
-        alt={project.title}
-        className="project-image"
-      />
-
-      <div className="project-content">
-        <p className="project-category">
-          {project.category}
-        </p>
-
+    <div className="project-card">
+      <img src={project.imageUrl} alt={project.title} />
+      <div className="card-body">
+        <span className="tag">{project.category}</span>
         <h3>{project.title}</h3>
-
-        <p className="project-description">
-          {project.description}
-        </p>
-
-        <button className="view-button">
-          View Project →
-        </button>
+        <p>{project.description}</p>
+        {project.link && (
+          <a href={project.link} target="_blank" rel="noreferrer">
+            View Project
+          </a>
+        )}
       </div>
-    </article>
+    </div>
   );
 }
-
-export default ProjectCard;
