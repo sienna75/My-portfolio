@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { initialProjects } from './data/projects';
+import { initialProjects } from './data/initialProjects';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SearchBar from './components/SearchBar';
